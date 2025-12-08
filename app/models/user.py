@@ -281,7 +281,7 @@ class User(Base):
         from app.core.config import settings
         from jose import jwt, JWTError
         try:
-            payload = jwt.decode(token, settings.JWT_SECRET_KEY, algorithms=[settings.ALGORITHM])
+            payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
             sub = payload.get("sub")
             if sub is None:
                 return None
