@@ -66,9 +66,9 @@ def create_token(
     }
 
     secret = (
-        settings.JWT_SECRET_KEY 
+        settings.SECRET_KEY 
         if token_type == TokenType.ACCESS 
-        else settings.JWT_REFRESH_SECRET_KEY
+        else settings.SECRET_KEY
     )
 
     try:
@@ -89,9 +89,9 @@ async def decode_token(
     """
     try:
         secret = (
-            settings.JWT_SECRET_KEY 
+            settings.SECRET_KEY 
             if token_type == TokenType.ACCESS 
-            else settings.JWT_REFRESH_SECRET_KEY
+            else settings.SECRET_KEY
         )
         
         payload = jwt.decode(
