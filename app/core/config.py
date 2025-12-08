@@ -39,3 +39,11 @@ class Settings(BaseSettings):
 
 # Create a global settings instance
 settings = Settings()
+
+
+def get_settings() -> Settings:
+    """
+    Get the settings instance.
+    This function is provided for backwards compatibility.
+    """
+    return settings
